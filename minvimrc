@@ -1,0 +1,27 @@
+"					load configure
+"""""""""""""""""""""""""""""""""""""""""""
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config.vim'
+
+" 					插件管理
+""""""""""""""""""""""""""""""""""""""""""""
+execute 'source' JoinPath(g:_fengleyl_init_path, 'config', 'plugin', 'plugins_min.vim')
+execute 'source' JoinPath(g:_fengleyl_init_path, 'config', 'better_defaults.vim')
+execute 'source' JoinPath(g:_fengleyl_init_path, 'config', 'plugin', 'general.vim')
+execute 'source' JoinPath(g:_fengleyl_init_path, 'config', 'plugin', 'ctrlp.vim')
+nnoremap <Leader>epv :call Openconfigurefile(JoinPath('config', 'plugin', 'plugins_min.vim'))<CR>
+if has('python') || has('python3')
+    if executable('python') || executable('python3')
+        execute 'source' JoinPath(g:_fengleyl_init_path, 'config', 'plugin', 'youdao.vim')
+    endif
+endif
+
+"				GVIM
+""""""""""""""""""""""""""""""""""""""""""""""
+" GVIM下的设置
+if (has("gui_running"))
+	execute 'source' JoinPath(g:_fengleyl_init_path, 'gvimrc')
+endif
+
+" register to vim which key
+call which_key#register('<Space>', 'g:_fengleyl_keymap')
+

@@ -1,0 +1,181 @@
+﻿"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" set leader key
+let mapleader=' '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ai
+set number						" 行号
+set cul                         " 高亮光标所在行
+set scrolloff=3     			" 光标移动到buffer的顶部和底部时保持3行距离
+set tabstop=4					" Tab键的宽度
+set softtabstop=4				" 统一缩进为4
+set shiftwidth=4
+set hlsearch					" 搜索逐字符高亮
+set incsearch					" 开启实时搜索功能
+set smartcase					" 搜索时自动使用大小写敏感配置
+set backspace=indent,eol,start
+set clipboard=unnamed			" 复制到系统剪切板
+set vb t_vb=                    " 关闭响铃
+
+"		configure keybindings
+"""""""""""""""""""""""""""""""""""""""""""""
+" reload
+nnoremap <Leader>sv :source ~/.vsvimrc<CR>
+
+" save file
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>fw :w<CR>
+
+" 高亮当前行
+nnoremap <Leader>hll :set cul<CR>
+"nnoremap <Leader>hlc :set cuc<CR>
+
+" Quit normal mode
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa!<CR>
+
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+" 跳转
+nnoremap <Leader>gd <C-]>
+" 后退 
+nnoremap <Leader>gh <C-o>
+" 前进
+nnoremap <Leader>gl <C-i>
+
+" Move to the start of line
+nnoremap H ^
+vnoremap H ^
+" Move to the end of line
+nnoremap L $
+vnoremap L $
+
+" Quit insert mode
+inoremap fd <Esc>
+"inoremap jj <Esc>
+"inoremap jk <Esc>
+
+" Quit visual mode
+vnoremap v <Esc>
+" Redo
+nnoremap U <C-r>
+" Yank to the end of line
+nnoremap Y y$
+
+" Window operation
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wd <C-W>c
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>w- <C-W>s
+nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>w\| <C-W>v
+
+" Tab operation
+nnoremap <Leader>tn gt
+nnoremap <Leader>tp gT
+nnoremap <Leader>bn gt
+nnoremap <Leader>bp gT
+" nnoremap <Leader>td :tabclose<CR>
+" close current tab
+nnoremap <Leader>td :vsc Window.CloseDocumentWindow<CR>
+nnoremap <Leader>bc :vsc Window.CloseDocumentWindow<CR>
+
+" search
+nnoremap <Leader>/ /
+nnoremap <Leader>sc :nohlsearch<CR>
+
+" paste mode
+nnoremap <Leader>sp :set paste<CR>
+nnoremap <Leader>snp :set nopaste<CR>
+
+" 搜索居中显示
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" key bindings for visual studio
+
+"重新生成选中项目的解决方案快捷键
+nnoremap <Leader>cb :vsc Build.RebuildSelection<CR>
+
+"nnoremap <Leader>tl :vsc Window.NextTab<CR>
+"nnoremap <Leader>th :vsc Window.PreviousTab<CR>
+"nnoremap <Leader>wn :vsc Window.NextDocumentWindow<CR>
+"nnoremap <Leader>wp :vsc Window.PreviousDocumentWindow<CR>
+
+"显示错误列表的快捷键
+nnoremap <Leader>cl :vsc View.ErrorList<CR>
+nnoremap <Leader>cn :vsc View.NextError<CR>
+nnoremap <Leader>cp :vsc View.PreviousError<CR>
+
+"添加注释
+vnoremap <Leader>ci :vsc VAssistX.SelectionBlockComment<CR><Esc><Esc>
+vnoremap <Leader>cu :vsc VAssistX.SelectionBlockUncomment<CR><Esc><Esc>
+nnoremap <Leader>ci :s/^/\/\/<CR>:nohlsearch<CR>
+nnoremap <Leader>cu :s/\/\//<CR>:nohlsearch<CR>
+
+" format code
+nnoremap <Leader>== :vsc Edit.FormatDocument<CR>
+
+"快速查看方法定义 
+nnoremap <Leader>vd :vsc Edit.QuickInfo<CR>
+
+"可视模式中，使用 * 和 # 查找
+vnoremap * "/y/<C-r>/<CR>
+vnoremap # "/y?<C-r>/<CR>
+
+" goto
+" nnoremap <Leader>jd <C-]>
+nnoremap <Leader>gd <C-]>
+" nnoremap <Leader>gh :vsc View.NavigateBackward<CR>
+" nnoremap <Leader>gl :vsc View.NavigateForward<CR>
+nnoremap <Leader>gh :vsc VAssistX.NavigateBack<CR>
+nnoremap <Leader>gl :vsc VAssistX.NavigateForward<CR>
+
+"open VAOutline
+nnoremap <Leader>jv :vsc VAssistX.VAOutline<CR>
+"打开解决方案资源管理器
+nnoremap <Leader>jp :vsc View.SolutionExplorer<CR>
+
+"打开查看类的对话框
+nnoremap <Leader>jc :vsc VAssistX.FindSymbolDialog<CR>
+"打开查看文件的对话框
+nnoremap <Leader>jf :vsc VAssistX.OpenFileInSolutionDialog<CR>
+"打开文件所在文件夹
+nnoremap <Leader>je :vsc File.OpenContainingFolder<CR>
+" 跳转
+nnoremap <Leader>jd :vsc VAssistx.GotoImplementation<CR>
+" .h .cpp切换
+nnoremap <Leader>ch :vsc VAssistX.OpenCorrespondingFile<CR>
+
+" 重命名
+nnoremap <Leader>rm :vsc VAssistX.RefactorRename<CR>
+
+" 查看函数列表 list methods
+" va 列出当前文件函数
+nnoremap <Leader>lf :vsc VAssistX.ListMethodsInCurrentFile<CR>
+
+" 查找所有引用--
+" nnoremap ca :vsc Edit.FindAllReferences<CR>
+" 或者使用VA的命令（vs2017中使用va命令比较好）
+nnoremap <Leader>jgs :vsc VAssistX.FindReferences<CR>
+" 在文件中查找
+" nnoremap <Leader>s/ :vsc Edit.FindinFiles<CR>
+nnoremap <Leader>js :vsc VAssistX.FindReferencesinFile<CR>
+
+"实现interface接口
+nnoremap <Leader>zp :vsc VAssistX.RefactorCreateImplementation<CR>
+

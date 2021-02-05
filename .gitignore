@@ -1,0 +1,6 @@
+bundle/
+*.swap
+autoload/
+plugged/
+ftplugin/
+

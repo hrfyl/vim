@@ -1,0 +1,165 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" set leader key
+let mapleader=' '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" load better_defaults and keybindings
+set number
+set showcmd         			" 输入的命令显示出来，看的清楚些
+set scrolloff=3     			" 光标移动到buffer的顶部和底部时保持3行距离
+set history=1000				" 历史记录数
+set hlsearch					" 搜索逐字符高亮
+set incsearch					" 开启实时搜索功能
+set iskeyword+=_,$,@,%,#,-		" 带有如下符号的单词不要被换行分割
+set nobackup					" no backup file
+set noswapfile					" no swap file
+set smartcase					" 搜索时自动使用大小写敏感配置
+set clipboard=unnamed			" 复制到系统剪切板
+set vb t_vb=                    " 关闭响铃
+
+"		configure keybindings
+"""""""""""""""""""""""""""""""""""""""""""""
+" reload
+nnoremap <Leader>sv :source ~/.ideavimrc<CR>
+nnoremap <Leader>ev :e ~/.ideavimrc<CR>
+
+" save file
+nnoremap <Leader>fs :w<CR>
+nnoremap <Leader>fw :w<CR>
+
+" 高亮当前行
+nnoremap <Leader>hll :set cul<CR>
+"nnoremap <Leader>hlc :set cuc<CR>
+
+" Quit normal mode
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa!<CR>
+
+" Insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+" 跳转
+" nnoremap <Leader>gd <C-]>
+" 后退 
+" nnoremap <Leader>gh <C-o>
+" 前进
+" nnoremap <Leader>gl <C-i>
+
+" Move to the start of line
+nnoremap H ^
+vnoremap H ^
+" Move to the end of line
+nnoremap L $
+vnoremap L $
+
+" Quit insert mode
+inoremap fd <Esc>
+
+" Quit visual mode
+vnoremap v <Esc>
+" Redo
+nnoremap U <C-r>
+" Yank to the end of line
+nnoremap Y y$
+
+" Window operation
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wd <C-W>c
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>w- <C-W>s
+nnoremap <Leader>wv <C-W>v
+nnoremap <Leader>w\| <C-W>v
+
+" Tab operation
+nnoremap <Leader>tn gt
+nnoremap <Leader>bn gt
+nnoremap <Leader>tp gT
+nnoremap <Leader>bp gT
+" nnoremap <Leader>td :tabclose<CR>
+" close current tab
+nnoremap <Leader>td :action CloseEditor<CR>
+nnoremap <Leader>bc :action CloseEditor<CR>
+
+" search
+nnoremap <Leader>/ /
+nnoremap <Leader>sc :nohlsearch<CR>
+
+" paste mode
+nnoremap <Leader>sp :set paste<CR>
+nnoremap <Leader>snp :set nopaste<CR>
+
+" 搜索居中显示
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" better defaults for JetBrains
+set showmode
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" key bindings for JetBrains
+
+" built in search looks better
+nnoremap / :action Find<CR>
+
+nnoremap <Leader>;; :action CommentByLineComment<CR>
+
+nnoremap <Leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>br :action ViewBreakpoints<CR>
+
+nnoremap <Leader>cv :action ChangeView<CR>
+
+nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
+
+" navigate
+nnoremap <Leader>gd :action GotoDeclaration<CR>
+nnoremap <Leader>gc :action GotoClass<CR>
+nnoremap <Leader>gh :action Back<CR>
+nnoremap <Leader>gl :action Forward<CR>
+
+nnoremap <Leader>ja :action GotoAction<CR>
+nnoremap <Leader>jc :action GotoClass<CR>
+nnoremap <Leader>jd :action GotoDeclaration<CR>
+nnoremap <Leader>jf :action GotoFile<CR>
+nnoremap <Leader>ji :action GotoImplementation<CR>
+nnoremap <Leader>js :action GotoSymbol<CR>
+nnoremap <Leader>jt :action GotoTest<CR>
+
+nnoremap <Leader>fp :action ShowFilePath<CR>
+nnoremap <Leader>fu :action FindUsages<CR>
+
+nnoremap <Leader>ic :action InspectCode<CR>
+
+nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
+
+nnoremap <Leader>oi :action OptimizeImports<CR>
+
+nnoremap <Leader>pm :action ShowPopupMenu<CR>
+
+nnoremap <Leader>rc :action ChooseRunConfiguration<CR>
+nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>rf :action RenameFile<CR>
+
+nnoremap <Leader>se :action SearchEverywhere<CR>
+nnoremap <Leader>su :action ShowUsages<CR>
+
+nnoremap <Leader>tc  :action CloseActiveTab<CR>
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+
+nnoremap <Leader>cc :action CommentByLineComment<CR>
+vnoremap <Leader>cc :action CommentByLineComment<CR>
+
