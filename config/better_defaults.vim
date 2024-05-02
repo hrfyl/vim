@@ -16,9 +16,6 @@ set foldmethod=syntax			" 基于缩进或语法进行代码折叠
 autocmd FileType python setlocal foldmethod=indent
 set foldlevel=99
 
-set keyprotocol=
-let &term=&term
-
 " 启动 vim 时关闭折叠代码
 set nofoldenable
 set nowrap						" 关闭换行
@@ -27,6 +24,13 @@ set nowrap						" 关闭换行
 if version >= 603
     set helplang=cn
     set encoding=utf-8
+endif
+
+if version >= 900
+    " 键盘协议,9.0以下版本不支持
+    " set keyprotocol=xterm:none
+    set keyprotocol=
+    let &term=&term
 endif
 
 " 设置文件编码格式
